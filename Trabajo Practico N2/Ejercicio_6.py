@@ -25,7 +25,7 @@ def normalizar_lista(lista):
         
     return lista_normalizada
 
-def main():
+def main() -> None:
     """
     Precondiciones:
     - La lista debe tener al menos un elemento entero positivo.
