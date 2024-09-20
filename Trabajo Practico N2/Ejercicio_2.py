@@ -12,6 +12,13 @@ Combinar estas tres funciones en un mismo programa.
 import random as rn
 
 def cargar_lista():
+    """
+    Precondiciones:
+    - Ninguna.
+
+    Postcondiciones:
+    - Devuelve una lista de números aleatorios del 1 al 100.
+    """
     cantidad = rn.randint(10, 99)
     lista = []
     for i in range(cantidad):
@@ -20,6 +27,14 @@ def cargar_lista():
     return lista
 
 def detectar_repetidos(lista):
+    """
+    Precondiciones:
+    - 'lista' debe ser una lista con números.
+
+    Postcondiciones:
+    - Devuelve True si la lista contiene elementos repetidos.
+    - Devuelve False si la lista no contiene elementos repetidos.
+    """
     for i in range(len(lista)):
         # Comparo el elemento actual con los que siguen
         for j in range(i + 1, len(lista)):
@@ -28,6 +43,13 @@ def detectar_repetidos(lista):
     return False
 
 def elementos_unicos(lista):
+    """
+    Precondiciones:
+    - 'lista' debe ser una lista con números.
+
+    Postcondiciones:
+    - Devuelve una nueva lista con los elementos únicos de la lista original.
+    """
     lista_unica = []
     for elemento in lista:
         encontrado = False
@@ -40,12 +62,19 @@ def elementos_unicos(lista):
             lista_unica.append(elemento)
     return lista_unica
 
-def menu():
+def main() -> None:
+    """
+    Precondiciones:
+    - El usuario debe ingresar un número entero positivo para la cantidad de elementos.
+
+    Postcondiciones:
+    - Se imprime en pantalla la lista generada, si contiene repetidos y la lista de elementos únicos.
+    """
     lista = cargar_lista()
     print(f"Lista generada: {lista}")
     
     repetidos = detectar_repetidos(lista)
-    if repetidos == True:
+    if repetidos:
         print(f"\nLa lista contiene elementos repetidos.")
     else:
         print("\nLa lista no contiene elementos repetidos.")
@@ -53,7 +82,5 @@ def menu():
     lista_unicos = elementos_unicos(lista)
     print(f"\nLista con elementos únicos: {lista_unicos}")
 
-menu()    
-    
-    
-            
+if __name__ == "__main__":
+    main()
