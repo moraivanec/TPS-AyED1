@@ -8,6 +8,13 @@ verificar el comportamiento de la función.
 '''
 
 def calcular_gastos(viajes):
+    """
+    Precondiciones:
+    - 'viajes' es un número entero positivo que representa la cantidad de viajes realizados en un mes.
+    
+    Postcondiciones:
+    - Devuelve el costo total de los viajes según la tarifa decreciente especificada.
+    """
     # Valor actualizado de tarifa: $650
     tarifa = 650
     if viajes >= 1 and viajes <= 20:
@@ -23,12 +30,26 @@ def calcular_gastos(viajes):
         costo_total = tarifa_con_descuento * viajes
     else:
         costo_total = 0
+        
     return costo_total
         
-viajes = int(input("Ingrese la cantidad de viajes que realizó en el mes: "))
-if viajes < 0:
-    print("\nNúmero de viajes no válido.")
-else:
-    gasto_total = calcular_gastos(viajes)
-    print(f"\nGasto total del mes: ${gasto_total:.2f}.")
+def main() -> None:
+    """
+    Precondiciones:
+    - Ninguna.
+    
+    Postcondiciones:
+    - Solicita al usuario la cantidad de viajes realizados en un mes.
+    - Imprime el costo total de los viajes si la cantidad de viajes es válida.
+    - Imprime un mensaje de error si la cantidad de viajes no es válida.
+    """
+    viajes = int(input("Ingrese la cantidad de viajes que realizó en el mes: "))
+    if viajes < 0:
+        print("\nNúmero de viajes no válido.")
+    else:
+        gasto_total = calcular_gastos(viajes)
+        print(f"\nGasto total del mes: ${gasto_total:.2f}.")
+
+if __name__ == "__main__":
+    main()
         
