@@ -12,6 +12,13 @@ auxiliares. Un ejemplo de lista capicúa es [50, 17, 91, 17, 50].
 import random as rn
 
 def cargar_lista():
+    """
+    Precondiciones:
+    - Ninguna.
+    
+    Postcondiciones:
+    - Devuelve una lista con un número aleatorio de elementos (2 dígitos) y cada elemento es un número aleatorio de cuatro dígitos.
+    """
     cantidad = rn.randint(10, 99)
     lista = []
     for i in range(cantidad):
@@ -20,12 +27,27 @@ def cargar_lista():
     return lista
 
 def calcular_producto(lista):
+    """
+    Precondiciones:
+    - 'lista' debe tener al menos un elemento.
+    
+    Postcondiciones:
+    - Devuelve el producto de todos los elementos de la lista.
+    """
     producto = 1
     for num in lista:
         producto *= num
     return producto
 
 def eliminar_valor(lista, valor):
+    """
+    Precondiciones:
+    - 'lista' no tiene que estar vacía.
+    
+    Postcondiciones:
+    - Elimina todas las apariciones de 'valor' de la lista.
+    - Devuelve la lista actualizada.
+    """
     indice = 0
     while indice < len(lista):
         if lista[indice] == valor:
@@ -35,6 +57,14 @@ def eliminar_valor(lista, valor):
     return lista
 
 def es_capicua(lista):
+    """
+    Precondiciones:
+    - 'lista' no tiene que estar vacía.
+    
+    Postcondiciones:
+    - Devuelve True si la lista es capicúa.
+    - Devuelve False si la lista no es capicúa.
+    """
     izquierda = 0
     derecha = len(lista) - 1
     
@@ -45,7 +75,16 @@ def es_capicua(lista):
         derecha -= 1
     return True
 
-def menu():
+def main() -> None:
+    """
+    Precondiciones:
+    - Ninguna.
+    
+    Postcondiciones:
+    - Imprime la lista generada, el producto de sus elementos,
+    la lista actualizada después de eliminar un valor y verifica
+    si una lista es capicúa.
+    """
     lista = cargar_lista()
     print(f"Lista con número al azar de 4 dígitos: {lista}")
     
@@ -62,4 +101,5 @@ def menu():
     else:
         print(f"\nLa lista: {lista_capicua} no es capicúa.")
         
-menu()
+if __name__ == "__main__":
+    main()
