@@ -7,6 +7,14 @@ el máximo hallado, o un mensaje informativo si éste no existe.
 '''
 
 def num_mayor(a, b, c):
+    """
+    Precondiciones:
+    - a, b y c son números enteros positivos.
+    
+    Postcondiciones:
+    - Devuelve el mayor de los tres números si es único.
+    - Devuelve -1 si no hay un mayor estricto.
+    """
     mayor = a
     if b > mayor:
         mayor = b
@@ -19,16 +27,28 @@ def num_mayor(a, b, c):
     else:
         return -1
 
-
-a = int(input("Ingrese el primer número: "))
-b = int(input("Ingrese el segundo número: "))
-c = int(input("Ingrese el tercer número: "))
+def main() -> None:
+    """
+    Precondiciones:
+    - Ninguna.
     
-resultado = num_mayor(a, b, c)
-if resultado == -1:
-    print("\nNo se encuentra un mayor estricto.")
-else:
-    print(f"\nEl número mayor es: {resultado}.")
+    Postcondicones:
+    - Solicita al usuario que ingrese 3 números enteros positivos.
+    - Llama a la función 'num_mayor' con los números ingresados.
+    - Muestra el resultado.
+    """
+    a = int(input("Ingrese el primer número: "))
+    b = int(input("Ingrese el segundo número: "))
+    c = int(input("Ingrese el tercer número: "))
+    
+    resultado = num_mayor(a, b, c)
+    if resultado == -1:
+        print("\nNo se encuentra un mayor estricto.")
+    else:
+        print(f"\nEl número mayor es: {resultado}.")
+    
+if __name__ == "__main__":
+    main()
         
 
         
